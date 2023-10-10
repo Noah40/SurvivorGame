@@ -41,20 +41,19 @@ public class Arrow extends GameObject{
 
         trans.setTransform(identity);
         if(!rotated) {
-            //Point imageLocation = new Point((int) x, (int) y);
-            float deltaY = y - (targety - 16);
-            float deltaX = x - (targetx - 16);
+            Point imageLocation = new Point((int) x, (int) y);
+            float deltaY = x  - targetx;
+            float deltaX = y - targety;
             angle = (float) Math.atan2(deltaX, deltaY);
-            angle = (float) Math.toRadians(Math.toDegrees(angle) + 90);
+            angle = (float) Math.toRadians(Math.toDegrees(angle)+180 );
             if (angle < 0) {
                 angle += (float) (Math.PI * 2);
             }
             rotated = true;
         }
-        trans.translate(x-16,y-16);
-        trans.scale(((double) width /img.getWidth())*10, ((double) height /img.getHeight())*10);
-
-            trans.rotate(angle);
+        trans.translate(x,y);
+        trans.scale( 0.2, 0.2);
+        trans.rotate(angle);
 
 
 
@@ -70,11 +69,6 @@ public class Arrow extends GameObject{
 
 
         Graphics2D g2d = (Graphics2D)g;
-
-
-
-
-
 
 
 

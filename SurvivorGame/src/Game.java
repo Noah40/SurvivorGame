@@ -189,17 +189,17 @@ public class Game extends Canvas implements Runnable{
             while(delta >= 1){
                 tick();
                 updates++;
+                render();
+                frames++;
                 delta --;
             }
 
-            render();
-            frames++;
+
             if(System.currentTimeMillis()-timer > 1000){
                 timer += 1000;
                 window.getFrame().setTitle(    "FPS: "+frames+", Updates: "+updates);
                 frames = 0;
                 updates = 0;
-
 
             }
 

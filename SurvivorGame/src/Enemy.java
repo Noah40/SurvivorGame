@@ -42,8 +42,8 @@ public class Enemy extends GameObject {
 
                 }
         }
-       // velx=((-1/distance)*diffx);
-      //  vely=((-1/distance)*diffy);
+        velx=((-1/distance)*diffx);
+        vely=((-1/distance)*diffy);
         if(diffx>(Game.WIDTH/2)+50||diffy>(Game.HEIGHT/2)+50){
             handler.removeObject(this);
         }
