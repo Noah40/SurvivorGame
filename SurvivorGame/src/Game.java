@@ -17,6 +17,8 @@ public class Game extends Canvas implements Runnable{
 
     public static BufferedImage arrow;
 
+    public static BufferedImage player;
+
 
 
 
@@ -68,12 +70,13 @@ public class Game extends Canvas implements Runnable{
             camera = new Camera(0,0);
             BufferedImageLoader loader = new BufferedImageLoader();
             hud = new HUD();
-            p1 = new Player((float) Game.WIDTH /2,50,ID.PLAYER,handler,hud,camera);
-            handler.addObject(p1);
+
 
             level = loader.loadImage("/res/level2.png");
             arrow = loader.loadImage("/res/arrow.png");
-
+            player = loader.loadImage("/res/player.png");
+            p1 = new Player((float) Game.WIDTH /2,50,ID.PLAYER,handler,hud,camera,player);
+            handler.addObject(p1);
             addKeyListener(new KeyInput(handler));
             addMouseListener(new MouseInput(handler,camera,p1));
             loadLevel(level);

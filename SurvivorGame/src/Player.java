@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 public class Player extends GameObject{
     int timer = 0;
@@ -10,11 +11,14 @@ public class Player extends GameObject{
     private int arrow_cooldown_length = 60;
     private int arrow_cooldown_timer = 0;
     private boolean arrow_cooldown = false;
-    public Player(float x, float y, ID id,Handler handler,HUD hud,Camera cam) {
+
+    private BufferedImage img;
+    public Player(float x, float y, ID id, Handler handler, HUD hud, Camera cam, BufferedImage image) {
         super(x, y, id);
         this.handler = handler;
         this.hud = hud;
         this.cam = cam;
+        this.img = image;
 
 
         width = 32;
@@ -77,10 +81,11 @@ public class Player extends GameObject{
 
     @Override
     public void render(Graphics g) {
-        g.setColor(Color.GREEN);
-        g.fillRect((int) x, (int) y,width,height);
+       // g.setColor(Color.GREEN);
+      //  g.fillRect((int) x, (int) y,width,height);
 
         Graphics2D g2d = (Graphics2D) g;
+        g2d.drawImage(img, (int) x, (int) y,null);
         g2d.setColor(Color.red);
         g2d.draw(getBoundsTop());
         g2d.draw(getBoundsBottom());
